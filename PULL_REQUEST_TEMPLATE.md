@@ -5,6 +5,8 @@
 - *Artefato(s) de Responsabilidade:* Diagrama de Sequência e ADR 0001]
 
 ## O que este PR introduz na Documentação Viva?
+Introdução de um diagrama dinâmico que representa o funcionamento do Pipeline RAG do Assistente de IA para Exportação, desde o recebimento da consulta do usuário até a recuperação de informações normativas, geração e apresentação da resposta final.
+
 Descreva sucintamente as alterações e os novos modelos adicionados à pasta /docs/:
 - [ ] *Visão Funcional / Estrutural:* Diagrama de Casos de Uso ou Diagrama de Classes e Interfaces.
 - [X] *Visão Comportamental:* Diagrama de Sequência, Atividades (com Raias/Fork-Join) ou Máquina de Estados.
