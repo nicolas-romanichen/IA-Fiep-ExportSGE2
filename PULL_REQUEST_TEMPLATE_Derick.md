@@ -3,7 +3,7 @@
 ## Nome do Avaliador: Derick Fernando Lins Rodrigues.
 - **Nome do Estudante:** [Leonardo Figura]
 - **Artefato(s) de Responsabilidade:** [ D2 ]
-- 
+  
 Análise do arquivo D2.txt: C4 Nível 2 (Contêineres) do Assistente de IA para Exportação (Sistema Fiep)
 
 O que este PR introduz na Documentação Viva?
