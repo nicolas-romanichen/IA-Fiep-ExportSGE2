@@ -2,7 +2,7 @@
 
 ## Nicolas Romanichen
 - *Igor Aguiar* 
-- *Artefato(s) de Responsabilidade:* Diagrama de Sequência e ADR 0001]
+- *Artefato(s) de Responsabilidade:* Pipeline RAG — Diagrama Dinâmico C4.
 
 ## O que este PR introduz na Documentação Viva?
 Introdução de um diagrama dinâmico que representa o funcionamento do Pipeline RAG do Assistente de IA para Exportação, desde o recebimento da consulta do usuário até a recuperação de informações normativas, geração e apresentação da resposta final.
