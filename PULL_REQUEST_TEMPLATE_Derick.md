@@ -9,13 +9,13 @@ Análise do arquivo D2.txt: C4 Nível 2 (Contêineres) do Assistente de IA para 
 O que este PR introduz na Documentação Viva?
 O PR adiciona à pasta /docs/ um único artefato, o diagrama C4 Nível 2 (Contêineres) do Assistente de IA para Exportação, escrito em D2 (Diagrams-as-Code). Ele detalha o interior do sistema com 6 contêineres de aplicação, 4 bancos de dados e 2 sistemas externos, e mostra como os dois atores (usuário e curador) interagem com ele.
 
-[ ] Visão Funcional / Estrutural: não incluída. Não há Casos de Uso nem Diagrama de Classes, embora os requisitos funcionais (RF01 a RF21) apareçam como rastreabilidade nos rótulos.
-[ ] Visão Comportamental: não incluída. Não há Sequência, Atividades ou Máquina de Estados, apesar de os rótulos de métodos (enviarPergunta, registrarConsulta) já sugerirem um diagrama de sequência.
-[ ] Visão Arquitetural Macro: incluída. É o Modelo C4 L2 em D2, com Pessoas, Usuário de exportação e Curador regulatório.
+- Visão Funcional / Estrutural: não incluída. Não há Casos de Uso nem Diagrama de Classes, embora os requisitos funcionais (RF01 a RF21) apareçam como rastreabilidade nos rótulos.
+- Visão Comportamental: não incluída. Não há Sequência, Atividades ou Máquina de Estados, apesar de os rótulos de métodos (enviarPergunta, registrarConsulta) já sugerirem um diagrama de sequência.
+- Visão Arquitetural Macro: incluída. É o Modelo C4 L2 em D2, com Pessoas, Usuário de exportação e Curador regulatório.
 Contêineres de aplicação: Interface, Backend/Orquestrador RAG, Gerador de Saídas Estruturadas, Serviço de Embeddings, LLM e Atualização Normativa.
 Bancos de dados: Banco Vetorial, Repositório de Regras Aduaneiras, Histórico e Perfil da Empresa e Registro de Auditoria.
 Sistemas externos: Fontes normativas oficiais e Siscomex (marcado como futuro fora do escopo inicial -> RF21).
-[ ] Governança: não incluída. Não há ADR, embora as decisões abaixo mereçam um.
+- Governança: não incluída. Não há ADR, embora as decisões abaixo mereçam um.
 
 
 Defesa das Decisões de Design (Justificativa Técnica)
