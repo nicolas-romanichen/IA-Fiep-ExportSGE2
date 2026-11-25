@@ -1,0 +1,119 @@
+title: |md
+  # C4 Nível 2 - Contêineres
+  Assistente de IA para Exportação (Sistema Fiep)
+| {near: top-center}
+
+direction: down
+
+classes: {
+  pessoa: {
+    shape: person
+    style.fill: "#08427b"
+    style.font-color: white
+  }
+  conteiner: {
+    style.fill: "#438dd5"
+    style.font-color: white
+    style.stroke: "#2e6295"
+  }
+  banco: {
+    shape: cylinder
+    style.fill: "#438dd5"
+    style.font-color: white
+    style.stroke: "#2e6295"
+  }
+  externo: {
+    style.fill: "#999999"
+    style.font-color: white
+    style.stroke: "#6b6b6b"
+  }
+  futuro: {
+    style.fill: "#cccccc"
+    style.font-color: "#333333"
+    style.stroke-dash: 4
+  }
+}
+
+usuario: "Usuário de exportação\n[Pessoa]\nPequena indústria que quer exportar" {
+  class: pessoa
+}
+
+curador: "Curador regulatório\n[Pessoa]\nMantém a base normativa atualizada" {
+  class: pessoa
+}
+
+fontes: "Fontes normativas oficiais\n[Sistema externo]\nLegislação e normas aduaneiras" {
+  class: externo
+}
+
+siscomex: "Siscomex e bases governamentais\n[Sistema externo]\nIntegração fora do escopo inicial (RF21)" {
+  class: futuro
+}
+
+sistema: "Assistente de IA para Exportação (Sistema Fiep)" {
+  style.fill: "#f5f5f5"
+  style.stroke: "#444444"
+  style.stroke-dash: 3
+
+  interface: "Interface\n[Contêiner]\nChat, checklist e relatório (RF01, RF13, RF14, RF17)" {
+    class: conteiner
+  }
+
+  orquestrador: "Backend / Orquestrador RAG\n[Contêiner]\nInterpreta a consulta, coleta dados e monta a resposta (RF01 a RF11, RF18)" {
+    class: conteiner
+  }
+
+  saidas: "Gerador de Saídas Estruturadas\n[Contêiner]\nChecklist, roteiro, comparação e relatório (RF14 a RF17)" {
+    class: conteiner
+  }
+
+  embeddings: "Serviço de Embeddings\n[Contêiner]\nGera vetores semânticos" {
+    class: conteiner
+  }
+
+  llm: "LLM\n[Contêiner]\nGera a resposta orientativa fundamentada" {
+    class: conteiner
+  }
+
+  vetorial: "Banco Vetorial\n[Banco de dados]\nÍndice de trechos normativos" {
+    class: banco
+  }
+
+  repositorio: "Repositório de Regras Aduaneiras\n[Banco de dados]\nRegras, requisitos, restrições, fontes e vigência" {
+    class: banco
+  }
+
+  historico: "Histórico e Perfil da Empresa\n[Banco de dados]\nSessões e dados recorrentes (RF02, RF19, RF20)" {
+    class: banco
+  }
+
+  auditoria: "Registro de Auditoria\n[Banco de dados]\nPergunta, fontes usadas e resposta" {
+    class: banco
+  }
+
+  atualizacao: "Atualização Normativa\n[Contêiner]\nIncorpora mudanças nas normas (RF12)" {
+    class: conteiner
+  }
+
+  interface -> orquestrador: "enviarPergunta / entregarResposta\n(RF01, RF02)"
+  orquestrador -> embeddings: "gerarEmbedding"
+  orquestrador -> vetorial: "buscarSimilares"
+  orquestrador -> repositorio: "recuperarRegras\n(RF04 a RF09)"
+  orquestrador -> llm: "gerarResposta\n(RF10, RF11)"
+  orquestrador -> historico: "Lê e grava sessões e perfil"
+  orquestrador -> saidas: "Solicita checklist, roteiro e relatório"
+  saidas -> repositorio: "Lê requisitos e fontes"
+  orquestrador -> auditoria: "registrarConsulta\n(assíncrono)" {
+    style.stroke-dash: 4
+  }
+  atualizacao -> repositorio: "Atualiza regras e vigência"
+  atualizacao -> embeddings: "gerarEmbedding dos novos trechos"
+  atualizacao -> vetorial: "Reindexa trechos"
+}
+
+usuario -> sistema.interface: "Pergunta em linguagem natural e recebe orientação\n[Navegador]"
+curador -> sistema.atualizacao: "Revisa e aprova mudanças normativas"
+sistema.atualizacao -> fontes: "Lê normas e alterações"
+sistema.orquestrador -> siscomex: "Consulta automática\n(futuro, RF21)" {
+  style.stroke-dash: 4
+}
